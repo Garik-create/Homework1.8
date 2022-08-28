@@ -85,18 +85,18 @@ public class Main {
 
     public static void task1() {
         int year = 2024;
-        printResult(year, isVisocosnyYear(year));
+        printResult(year, isLeapYear(year));
     }
 
-    public static boolean isVisocosnyYear(int year) {
+    public static boolean isLeapYear(int year) {
         if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
             return (true);
         }
         return (false);
     }
 
-    public static void printResult(int year, boolean isVisocosnyYear) {
-        if (isVisocosnyYear) {
+    public static void printResult(int year, boolean isLeapYear) {
+        if (isLeapYear) {
             System.out.printf("%d - високосный год\n", year);
         } else {
             System.out.printf("%d - не високосный год\n", year);
@@ -118,7 +118,7 @@ public class Main {
 
     public static void printMessage(int os, int deviceYear) {
         int currentYear = LocalDate.now().getYear();
-        if (os == 0 && deviceYear < currentYear) {
+        /*if (os == 0 && deviceYear < currentYear) {
             System.out.println("Установите lite версию приложения для iOS по ссылке");
         } else if (os == 1 && deviceYear < currentYear) {
             System.out.println("Установите lite версию приложения для Андроид по ссылке");
@@ -126,7 +126,12 @@ public class Main {
             System.out.println("Установите обычную версию приложения для iOS по ссылке");
         } else {
             System.out.println("Установите обычную версию приложения для Андроид по ссылке");
-        }
+        }*/
+
+        String version = deviceYear < currentYear ? "lite" : "обычную";
+        String device = os == 0 ? "iOS" : "Андроид";
+
+        System.out.printf("Установите %s версию приложения для %s по ссылке\n", version, device);
     }
 
     public static void task3() {
